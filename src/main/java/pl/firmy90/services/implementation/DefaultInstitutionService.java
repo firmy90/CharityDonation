@@ -23,7 +23,6 @@ public class DefaultInstitutionService implements InstitutionService {
     public List<InstitutionDTO> showInstitutions() {
         List<Institution> institutions = institutionRepository.findAll();
         log.debug("Institutions list: {}", institutions.toString());
-        ModelMapper mapper = new ModelMapper();
-        return institutions.stream().map(institution -> mapper.map(institution,InstitutionDTO.class)).collect(Collectors.toList());
+        return institutions.stream().map(institution -> modelMapper.map(institution,InstitutionDTO.class)).collect(Collectors.toList());
     }
 }
