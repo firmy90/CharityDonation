@@ -19,7 +19,7 @@ public class Category extends BaseEntity{
     @Column(nullable = false, length = 100)
     private String name;
 
-    //TODO
-    @ManyToMany(mappedBy = "categories")
-    private List<Donation> donations;
+//    //TODO
+//    @ManyToMany(mappedBy = "categories")
+//    private List<Donation> donations;
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.firmy90.dtos.InstitutionDTO;
+import pl.firmy90.services.interfaces.CategoryService;
+import pl.firmy90.services.interfaces.DonationService;
 import pl.firmy90.services.interfaces.InstitutionService;
 
 import java.util.List;
@@ -19,12 +21,22 @@ import java.util.List;
 @AllArgsConstructor
 public class HomeController {
     private final InstitutionService institutionService;
+    private final DonationService donationService;
 
     @ModelAttribute("institutions")
     public List<InstitutionDTO> showInstitutions() {
         List<InstitutionDTO> institutionDTOS = institutionService.showInstitutions();
         log.debug("InstitutionsDTO list: {}", institutionDTOS.toString());
         return institutionDTOS;
+    }
+    @ModelAttribute("countDonations")
+    public Long countCategories(){
+        return donationService.countDonations();
+    }
+
+    @ModelAttribute("countQuantity")
+    public Integer countQuantity(){
+        return donationService.countQuantity();
     }
 
 
