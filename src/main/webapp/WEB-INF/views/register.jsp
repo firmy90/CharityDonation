@@ -21,7 +21,7 @@
           <form:input type="text" path="surname" id="surname" placeholder="Nazwisko" required="true" />
         </div>
         <div class="form-group">
-          <form:input type="email" path="username" id="email" placeholder="Email" required="true" />
+          <form:input type="email" path="username" id="username" placeholder="Email" required="true" />
         </div>
         <div class="form-group">
           <form:input type="password" path="password" id="password" placeholder="Hasło" required="true" />

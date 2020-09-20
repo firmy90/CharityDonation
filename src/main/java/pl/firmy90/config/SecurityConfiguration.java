@@ -1,5 +1,6 @@
 package pl.firmy90.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,17 +9,22 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.sql.DataSource;
 
 @Configuration
+@AllArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final DataSource dataSource;
+    private final AuthenticationSuccessHandler authenticationSuccessHandler;
 
-    @Autowired
-    public SecurityConfiguration(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+
+//    @Autowired
+//    public SecurityConfiguration(DataSource dataSource, AuthenticationSuccessHandler authenticationSuccessHandler) {
+//        this.dataSource = dataSource;
+//        this.authenticationSuccessHandler = authenticationSuccessHandler;
+//    }
 
 
     @Override
@@ -26,18 +32,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests()
                 .antMatchers("/login").anonymous()
+                .antMatchers("/register").anonymous()
                 .antMatchers("/admin/", "/admin/**").hasRole("ADMIN")
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .successHandler(authenticationSuccessHandler)
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
                 .and()
-                .csrf();
+                .csrf()
+                .disable();
     }
 
     @Override

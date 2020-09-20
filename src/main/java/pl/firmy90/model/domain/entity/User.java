@@ -13,11 +13,12 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User extends BaseEntity {
     @Column(length = 100, unique = true, nullable = false)
+    private String username;
+    @Column(length = 100, unique = true, nullable = false)
     private String name;
     @Column(length = 100, unique = true, nullable = false)
     private String surname;
-    @Column(length = 100, unique = true, nullable = false)
-    private String username;
+
 
     @Column(length = 100, nullable = false)
     private String password;
