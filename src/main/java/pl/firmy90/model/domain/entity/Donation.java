@@ -1,12 +1,14 @@
 package pl.firmy90.model.domain.entity;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+@Data
 @Getter
 @Setter
 @ToString
@@ -35,9 +37,14 @@ public class Donation extends BaseEntity {
     private String city;
     @Column(nullable = false, length = 10)
     private String zipCode;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private LocalDate pickUpDate;
+    @Column(nullable = false)
+    @DateTimeFormat(pattern="HH:MM")
     private LocalTime pickUpTime;
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String pickUpComment;
+
 
 }

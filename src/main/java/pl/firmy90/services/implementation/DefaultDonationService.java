@@ -3,6 +3,7 @@ package pl.firmy90.services.implementation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import pl.firmy90.model.domain.entity.Donation;
 import pl.firmy90.model.repositories.DonationRepository;
 import pl.firmy90.services.interfaces.DonationService;
 
@@ -21,5 +22,11 @@ public class DefaultDonationService implements DonationService {
     public Integer countQuantity() {
         return donationRepository.countAllQuantity();
     }
+
+    @Override
+    public void saveFormDonation(Donation donation) {
+        donationRepository.save(donation);
+    }
+
 
 }
