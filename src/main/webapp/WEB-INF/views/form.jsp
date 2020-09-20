@@ -153,15 +153,18 @@
                             <ul>
                                 <li>
                                     <span class="icon icon-bag"></span>
-                                    <span class="summary--text">4 worki ubrań w dobrym stanie dla dzieci</span
-                                    >
+                                    <label> Liczba worków: <span class="summary--text" id="summary-quantity">cztery</span></label>
+                                </li>
+                                <li>
+                                    <span class="icon icon-bag"></span>
+                                    <label> Kategorie: </label>
+                                    <span class="summary--text" id="summary-categories">kategoria 1</span>
+                                    <span class="summary--text" id="summary-categories1">kategoria 2</span>
                                 </li>
 
                                 <li>
                                     <span class="icon icon-hand"></span>
-                                    <span class="summary--text"
-                                    >Dla fundacji "Mam marzenie" w Warszawie</span
-                                    >
+                                    <label>Odbiorca: <span class="summary--text" id="summary-insitutions">Fundacja</span></label>
                                 </li>
                             </ul>
                         </div>
@@ -198,6 +201,7 @@
 </section>
 
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
+
 
 </body>
 </html>

@@ -1,0 +1,14 @@
+package pl.firmy90.dtos;
+
+import lombok.Data;
+
+@Data
+public class RegistrationDTO {
+    private String userId;
+    private String name;
+    private String surname;
+    private String username;
+    private String password;
+    private String password2;
+
+}

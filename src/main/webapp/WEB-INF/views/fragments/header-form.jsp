@@ -10,13 +10,20 @@
     <nav class="container container--70">
         <ul class="nav--actions">
             <li class="logged-user">
-                Witaj Agata
+                <sec:authorize access="!isAuthenticated()">
+            <li><a href="<c:url value="/login"/>" class="btn btn--small btn--without-border">Zaloguj</a></li>
+            <li><a href="<c:url value="/register"/>" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <sec:csrfInput/>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                Witaj ${pageContext.request.userPrincipal.principal.username}
                 <ul class="dropdown">
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
-                    <li><a href="#">Wyloguj</a></li>
+                    <li><a href="#" class = "btn btn--without-border">Profil</a></li>
+                    <li><a href="#" class="btn btn--without-border">Moje zbiórki</a></li>
+                    <li><form method="post" action="/logout"><button class=" btn btn--without-border">Wyloguj</button><sec:csrfInput/></form></li>
                 </ul>
-            </li>
+            </sec:authorize>
+
         </ul>
 
         <ul>

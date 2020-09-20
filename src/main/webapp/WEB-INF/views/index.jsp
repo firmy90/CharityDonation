@@ -8,7 +8,13 @@
 
 <!DOCTYPE html>
 <html lang="pl">
-<jsp:include page="/WEB-INF/views/fragments/head.jsp"/>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Charity</title>
+    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+</head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
 
@@ -23,9 +29,8 @@
         </div>
 
 
-
         <div class="stats--item">
-            <em><c:out value="${countDonations}" /></em>
+            <em><c:out value="${countDonations}"/></em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -59,8 +64,11 @@
             <p>kurier przyjedzie w dogodnym terminie</p>
         </div>
     </div>
+    <sec:authorize access="!isAuthenticated()">
+        <a href="<c:url value="/register"/>" class="btn btn--large">Załóż konto</a>
+        <sec:csrfInput/>
+    </sec:authorize>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section id="about-us" class="about-us">
@@ -103,5 +111,6 @@
 </section>
 
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
+<script src="<c:url value="resources/js/app.js"/>"></script>
 </body>
 </html>
