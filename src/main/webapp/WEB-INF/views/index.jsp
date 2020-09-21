@@ -104,8 +104,6 @@
                 </c:if>
             </c:forEach>
         </ul>
-
-
     </div>
 
 </section>

@@ -14,4 +14,5 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Charity</title>
     <link rel="stylesheet" href="<c:url value="/css/style.css"/>" type="text/css"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" type="text/css"/>
 </head>

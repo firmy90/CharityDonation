@@ -16,8 +16,18 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/admin/admin-header-index.jsp"/>
+<jsp:include page="/WEB-INF/views/admin/admin-header.jsp"/>
 
+<section class="help">
+    <h2>Lista fundacji</h2>
+    <form:form method="post" modelAttribute="institution">
+        <form:input path="institutionName" type="text" id="institutionName" placeholder="Nazwa instytucji" required="true" />
+        <form:input path="institutionDescription" type="text" id="institutionDescription" placeholder="Opis instytucji" required="true" />
+        <button type="submit">Utwórz</button>
+    </form:form>
+
+
+</section>
 
 
 </body>

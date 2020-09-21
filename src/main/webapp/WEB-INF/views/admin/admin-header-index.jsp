@@ -6,7 +6,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false" %>
 
-<header >
+<header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
             <li class="logged-user">
@@ -28,6 +28,12 @@
             <li><a href="<c:url value="/form"/>" class="btn btn--without-border">Przekaż dary</a></li>
         </ul>
     </nav>
-
+    <div class="slogan container container--70">
+        <div class="slogan--item">
+            <h1>
+                Witaj administratorze!<br/>
+            </h1>
+        </div>
+    </div>
 
 </header>

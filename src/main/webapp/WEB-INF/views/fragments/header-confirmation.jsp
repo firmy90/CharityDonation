@@ -18,7 +18,12 @@
             <sec:authorize access="isAuthenticated()">
                 Witaj ${pageContext.request.userPrincipal.principal.username}
                 <ul class="dropdown">
-                    <li><a href="#" class = "btn btn--without-border">Profil</a></li>
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <li><a href="/admin" class = "btn btn--without-border">Profil</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('USER')">
+                        <li><a href="#" class = "btn btn--without-border">Profil</a></li>
+                    </sec:authorize>
                     <li><a href="#" class="btn btn--without-border">Moje zbiórki</a></li>
                     <li><form method="post" action="/logout"><button class=" btn btn--without-border">Wyloguj</button><sec:csrfInput/></form></li>
                 </ul>

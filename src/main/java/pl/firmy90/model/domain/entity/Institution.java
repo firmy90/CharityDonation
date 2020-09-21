@@ -18,4 +18,5 @@ public class Institution extends BaseEntity {
     private String name;
     @Column(nullable = false)
     private String description;
+    private boolean visible = Boolean.TRUE;
 }
