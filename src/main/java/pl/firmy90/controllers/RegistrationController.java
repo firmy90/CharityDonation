@@ -4,29 +4,34 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import pl.firmy90.dtos.InstitutionDTO;
 import pl.firmy90.dtos.RegistrationDTO;
 import pl.firmy90.services.interfaces.RegisterService;
 
 @Controller
 @Slf4j
-@RequestMapping("/register")
+@RequestMapping
 @AllArgsConstructor
 public class RegistrationController {
     private final RegisterService registerService;
 
-    @GetMapping
-    public String showRegisterPage(Model model){
+    @GetMapping(path = {"/register","/admin/users/add"})
+    public String showRegisterPage(Model model) {
         model.addAttribute("registrationData", new RegistrationDTO());
         return "/register";
     }
 
-    @PostMapping
-    public String register(@ModelAttribute("registrationData") RegistrationDTO registrationDTO){
+    @PostMapping("/register")
+    public String register(@ModelAttribute("registrationData") RegistrationDTO registrationDTO) {
         registerService.register(registrationDTO);
         return "redirect:/";
     }
+
+    @PostMapping("/admin/users/add")
+    public String registerUSer(@ModelAttribute("registrationData") RegistrationDTO registrationDTO) {
+        registerService.register(registrationDTO);
+        return "redirect:/admin/users";
+    }
+
 }

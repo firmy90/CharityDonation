@@ -24,7 +24,6 @@ public class DefaultInstitutionService implements InstitutionService {
 
     @Override
     public List<InstitutionDTO> showInstitutions() {
-//        List<Institution> institutions = institutionRepository.findAll();
         List<Institution> institutions = institutionRepository.findVisibleInstitutionsByVisibleEquals(Boolean.TRUE);
         log.debug("Institutions list: {}", institutions.toString());
         return institutions.stream().map(institution -> modelMapper.map(institution, InstitutionDTO.class)).collect(Collectors.toList());

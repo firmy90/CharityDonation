@@ -12,8 +12,9 @@
   <jsp:include page="/WEB-INF/views/fragments/header-register.jsp"/>
 
     <section class="login-page">
-      <h2>Załóż konto</h2>
-      <form:form method="post" action="/register" modelAttribute="registrationData">
+      <h2>Rejestruj</h2>
+      <form:form method="post" modelAttribute="registrationData">
+<%--      <form:form method="post" action="/register" modelAttribute="registrationData">--%>
         <div class="form-group">
           <form:input type="text" path="name" id="name" placeholder="Imię" required="true" />
         </div>
@@ -30,8 +31,8 @@
           <form:input type="password" path="password2" id="password2"  placeholder="Powtórz hasło" required="true" />
         </div>
         <div class="form-group form-group--buttons">
-          <a href="/login" class="btn btn--without-border">Zaloguj się</a>
-          <form:button class="btn" type="submit">Załóż konto</form:button>
+<%--          <a href="/login" class="btn btn--without-border">Zaloguj się</a>--%>
+          <form:button class="btn" type="submit">Rejestruj</form:button>
         </div>
         <sec:csrfInput/>
       </form:form>

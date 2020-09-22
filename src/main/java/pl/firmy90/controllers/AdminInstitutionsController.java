@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 @Slf4j
-public class InstitutionController {
+public class AdminInstitutionsController {
     private final InstitutionService institutionService;
 
     @GetMapping("institutions")
@@ -38,6 +38,12 @@ public class InstitutionController {
         return "redirect:/admin/institutions/";
     }
 
+    @GetMapping("institutions/delete/{id}")
+    public String deleteInstitution(@PathVariable Long id){
+        institutionService.archiveInstitution(id);
+        return "redirect:/admin/institutions";
+    }
+
     @GetMapping("institutions/add")
     public String showInstitutionForm(Model model){
         model.addAttribute("institution", new InstitutionDTO());
@@ -47,12 +53,6 @@ public class InstitutionController {
     @PostMapping("institutions/add")
     public String addInstitutionForm(@ModelAttribute("institution") InstitutionDTO institutionDTO){
         institutionService.saveInstitution(institutionDTO);
-        return "redirect:/admin/institutions";
-    }
-
-    @GetMapping("institutions/delete/{id}")
-    public String deleteInstitution(@PathVariable Long id){
-        institutionService.archiveInstitution(id);
         return "redirect:/admin/institutions";
     }
 

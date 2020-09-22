@@ -21,9 +21,17 @@
 <section class="help">
     <h2>Lista fundacji</h2>
     <form:form method="post" modelAttribute="institution">
-        <form:input path="institutionName" type="text" id="institutionName" placeholder="Nazwa instytucji" required="true" />
-        <form:input path="institutionDescription" type="text" id="institutionDescription" placeholder="Opis instytucji" required="true" />
-        <button type="submit">Utwórz</button>
+        <div class="form-group">
+            <form:input path="institutionName" type="text" id="institutionName" placeholder="Nazwa instytucji"
+                        required="true"/>
+        </div>
+        <div class="form-group">
+            <form:input path="institutionDescription" type="text" id="institutionDescription"
+                        placeholder="Opis instytucji" required="true"/>
+        </div>
+        <div class="form-group form-group--buttons">
+            <button type="submit" class="btn">Utwórz</button>
+        </div>
     </form:form>
 
 
