@@ -15,47 +15,47 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 @Slf4j
-public class AdminAdminsController {
+public class AdminUsersController {
     private final RegisterService registerService;
 
 
-    @GetMapping("admins/add")
+    @GetMapping("users/add")
     public String showRegisterPage(Model model) {
         model.addAttribute("registrationData", new RegistrationDTO());
         return "/register";
     }
 
-    @PostMapping("admins/add")
-    public String registerAdmin(@ModelAttribute("registrationData") RegistrationDTO registrationDTO) {
-        registerService.registerAdmin(registrationDTO);
-        return "redirect:/admin/admins";
+    @PostMapping("users/add")
+    public String registerUser(@ModelAttribute("registrationData") RegistrationDTO registrationDTO) {
+        registerService.register(registrationDTO);
+        return "redirect:/admin/users";
     }
 
-    @GetMapping("admins")
+    @GetMapping("users")
     public String showAdmins(Model model) {
-        List<RegistrationDTO> registrationDTOS = registerService.showActiveUsersByRole(Role.ROLE_ADMIN);
+        List<RegistrationDTO> registrationDTOS = registerService.showActiveUsersByRole(Role.ROLE_USER);
         model.addAttribute("registrationData", registrationDTOS);
-        return "admin/admin-admins";
+        return "admin/admin-users";
     }
 
-    @GetMapping("admins/edit/{id}")
-    public String showAdminToEdit(@PathVariable Long id, Model model) {
+    @GetMapping("users/edit/{id}")
+    public String showUSerToEdit(@PathVariable Long id, Model model) {
         RegistrationDTO byId = registerService.findById(id);
         byId.setPassword(null);
         model.addAttribute("registrationData", byId);
         return "register";
     }
 
-    @PostMapping("admins/edit/{id}")
-    public String editAdmin(@PathVariable Long id, @ModelAttribute("registrationData") RegistrationDTO registrationDTO) {
-        registerService.update(id, registrationDTO, Role.ROLE_ADMIN);
-        return "redirect:/admin/admins/";
+    @PostMapping("users/edit/{id}")
+    public String editUser(@PathVariable Long id, @ModelAttribute("registrationData") RegistrationDTO registrationDTO) {
+        registerService.update(id, registrationDTO, Role.ROLE_USER);
+        return "redirect:/admin/users/";
     }
 
-    @GetMapping("admins/delete/{id}")
+    @GetMapping("users/delete/{id}")
     public String delete(@PathVariable Long id) {
-        registerService.delete(id);
-        return "redirect:/admin/admins";
+        registerService.archive(id);
+        return "redirect:/admin/users";
     }
 
 

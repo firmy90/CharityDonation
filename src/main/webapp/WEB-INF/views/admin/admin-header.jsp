@@ -25,7 +25,6 @@
             <li><a href="<c:url value="/admin/institutions"/>" class="btn btn--without-border">Fundacje</a></li>
             <li><a href="<c:url value="/admin/admins"/>" class="btn btn--without-border">Administratorzy</a></li>
             <li><a href="<c:url value="/admin/users"/>" class="btn btn--without-border">Użytkownicy</a></li>
-            <li><a href="<c:url value="/form"/>" class="btn btn--without-border">Przekaż dary</a></li>
         </ul>
     </nav>
 
