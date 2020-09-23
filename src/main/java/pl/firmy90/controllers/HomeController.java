@@ -66,8 +66,8 @@ public class HomeController {
             return "/profile";
         }
         RegistrationDTO byUsername = registerService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
-        byUsername.setUsername(byUsername.getUsername());
-        byUsername.setUserId(byUsername.getUserId());
+//        byUsername.setUsername(byUsername.getUsername());
+//        byUsername.setUserId(byUsername.getUserId());
         byUsername.setName(changeUserDataDTO.getName());
         byUsername.setSurname(changeUserDataDTO.getSurname());
         byUsername.setPassword(changeUserDataDTO.getPassword());

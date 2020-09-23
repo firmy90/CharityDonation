@@ -14,6 +14,7 @@ public class ChangeUserDataDTO {
     private String name;
     @NotBlank
     private String surname;
+    private String username;
     @NotBlank
     @Size(min = 8, max = 100)
     private String password;

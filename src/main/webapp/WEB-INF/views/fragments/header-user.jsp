@@ -21,10 +21,10 @@
                 <ul class="dropdown">
                     <sec:authorize access="hasRole('ADMIN')">
                         <li><a href="<c:url value="/admin"/>" class = "btn btn--without-border">Główna</a></li>
-                        <li><a href="<c:url value="/admin/profil"/>" class = "btn btn--without-border">Profil</a></li>
+                        <li><a href="<c:url value="/admin/profile/show"/>" class = "btn btn--without-border">Profil</a></li>
                     </sec:authorize>
                     <sec:authorize access="hasRole('USER')">
-                        <li><a href="<c:url value="/home/profile"/>" class = "btn btn--without-border">Profil</a></li>
+                        <li><a href="<c:url value="/home/profile/show"/>" class = "btn btn--without-border">Profil</a></li>
                         <li><a href="#" class="btn btn--without-border">Moje zbiórki</a></li>
                     </sec:authorize>
                     <li><form method="post" action="/logout"><button class=" btn btn--without-border">Wyloguj</button><sec:csrfInput/>

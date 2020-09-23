@@ -23,6 +23,7 @@
     <div class="help--slides active" data-id="1">
 
         <ul class="help--slides-items">
+            <h3 style="color: red"><c:out value="${cannotDeleteYourself}"></c:out></h3>
             <c:forEach varStatus="index" items="${registrationData}" var="inst">
                 <li>
                     <div class="col">

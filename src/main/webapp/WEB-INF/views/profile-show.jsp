@@ -17,7 +17,7 @@
           <h2> <label> Imię: </label><c:out value="${registrationData.name}"/></h2>
         </div>
         <div class="form-group">
-          <h2><label> Imię: </label><c:out value="${registrationData.surname}"/></h2>
+          <h2><label> Nazwisko: </label><c:out value="${registrationData.surname}"/></h2>
         </div>
         <div class="form-group">
           <h2> <label> Email: </label><c:out value="${registrationData.username}"/></h2>
