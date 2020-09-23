@@ -19,10 +19,11 @@
                 Witaj ${pageContext.request.userPrincipal.principal.username}
                 <ul class="dropdown">
                     <sec:authorize access="hasRole('ADMIN')">
-                        <li><a href="/admin" class = "btn btn--without-border">Profil</a></li>
+                        <li><a href="<c:url value="/admin"/>" class = "btn btn--without-border">Główna</a></li>
+                        <li><a href="<c:url value="/admin/profil"/>" class = "btn btn--without-border">Profil</a></li>
                     </sec:authorize>
                     <sec:authorize access="hasRole('USER')">
-                        <li><a href="#" class = "btn btn--without-border">Profil</a></li>
+                        <li><a href="<c:url value="/home/profile"/>" class = "btn btn--without-border">Profil</a></li>
                     </sec:authorize>
                     <li><a href="#" class="btn btn--without-border">Moje zbiórki</a></li>
                     <li><form method="post" action="/logout"><button class=" btn btn--without-border">Wyloguj</button><sec:csrfInput/></form></li>
@@ -32,11 +33,14 @@
         </ul>
 
         <ul>
-            <li><a href="<c:url value="/"/>" class="btn btn--without-border active">Start</a></li>
-            <li><a href="<c:url value="/"/>#steps" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="<c:url value="/"/>#about-us" class="btn btn--without-border">O nas</a></li>
-            <li><a href="<c:url value="/"/>#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="<c:url value="/"/>#contact" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="<c:url value="/home"/>" class="btn btn--without-border active">Start</a></li>
+<%--            <li><a href="<c:url value="/"/>#steps" class="btn btn--without-border">O co chodzi?</a></li>--%>
+            <li><a href="<c:url value="/home"/>#about-us" class="btn btn--without-border">O nas</a></li>
+            <li><a href="<c:url value="/home"/>#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+            <sec:authorize access="isAuthenticated()">
+                <li><a href="<c:url value="/home/form"/>#form" class="btn btn--without-border">Przekaż dary</a></li>
+            </sec:authorize>
+            <li><a href="<c:url value="/home"/>#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
 

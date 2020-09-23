@@ -3,6 +3,7 @@ package pl.firmy90.services.implementation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.firmy90.dtos.RegistrationDTO;
@@ -103,5 +104,14 @@ public class DefaultRegisterService implements RegisterService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public RegistrationDTO findByUsername(String username) {
+        User byUsername = registrationRepository.getByUsername(username);
+        RegistrationDTO map = modelMapper.map(byUsername, RegistrationDTO.class);
+        map.setPassword(null);
+        log.debug("User after mapping: {}", map);
+        return map;
     }
 }

@@ -3,6 +3,7 @@ package pl.firmy90.services.interfaces;
 import pl.firmy90.dtos.RegistrationDTO;
 import pl.firmy90.model.domain.entity.Role;
 
+import javax.servlet.Registration;
 import java.util.List;
 
 public interface RegisterService {
@@ -17,4 +18,6 @@ public interface RegisterService {
     boolean update(Long id, RegistrationDTO registrationDTO, Role role);
     boolean delete(Long id);
     boolean archive(Long id);
+
+    RegistrationDTO findByUsername(String username);
 }

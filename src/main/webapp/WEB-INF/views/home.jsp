@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
+<jsp:include page="/WEB-INF/views/fragments/header-form.jsp"/>
 
 
 <section id="stats" class="stats">
@@ -64,10 +64,6 @@
             <p>kurier przyjedzie w dogodnym terminie</p>
         </div>
     </div>
-    <sec:authorize access="!isAuthenticated()">
-        <a href="<c:url value="/register"/>" class="btn btn--large">Załóż konto</a>
-        <sec:csrfInput/>
-    </sec:authorize>
 
 </section>
 
@@ -76,9 +72,9 @@
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="<c:url value="/resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
+        <img src="<c:url value="/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
     </div>
-    <div class="about-us--image"><img src="<c:url value="/resources/images/about-us.jpg"/>" alt="People in circle"/></div>
+    <div class="about-us--image"><img src="<c:url value="/images/about-us.jpg"/>" alt="People in circle"/></div>
 </section>
 
 <section id="help" class="help">
@@ -109,6 +105,6 @@
 </section>
 
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
-<script src="<c:url value="resources/js/app.js"/>"></script>
+<script src="<c:url value="/resources/js/app.js"/>"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@ import pl.firmy90.services.interfaces.InstitutionService;
 
 @Controller
 @Slf4j
-@RequestMapping()
+@RequestMapping("/home")
 @AllArgsConstructor
 public class FormController {
     private final InstitutionService institutionService;
@@ -24,7 +24,7 @@ public class FormController {
     private final DonationService donationService;
 
 
-    @GetMapping("/form")
+    @GetMapping("form")
     public String prepareFormDonation(Model model) {
         model.addAttribute("institutions", institutionService.showInstitutions());
         model.addAttribute("categories", categoryService.showCategories());
@@ -34,14 +34,14 @@ public class FormController {
         return "form";
     }
 
-    @PostMapping("/form")
+    @PostMapping("form")
     public String addDonation(@ModelAttribute("donation") Donation donation) {
         log.debug("donation object: {}", donation.toString());
         donationService.saveFormDonation(donation);
-        return "redirect:/form-confirmation";
+        return "redirect:/home/form-confirmation";
     }
 
-    @GetMapping("/form-confirmation")
+    @GetMapping("form-confirmation")
     public String formConfirmation() {
         return "form-confirmation";
     }

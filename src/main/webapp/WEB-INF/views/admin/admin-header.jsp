@@ -13,7 +13,8 @@
             <sec:authorize access="isAuthenticated()">
                 Witaj ${pageContext.request.userPrincipal.principal.username}
                 <ul class="dropdown">
-                    <li><a href="/admin" class = "btn btn--without-border">Profil</a></li>
+                    <li><a href="/admin" class = "btn btn--without-border">Główna</a></li>
+                    <li><a href="/admin/profil" class = "btn btn--without-border">Profil</a></li>
                     <li><form method="post" action="/logout"><button class=" btn btn--without-border">Wyloguj</button><sec:csrfInput/></form></li>
                 </ul>
             </sec:authorize>

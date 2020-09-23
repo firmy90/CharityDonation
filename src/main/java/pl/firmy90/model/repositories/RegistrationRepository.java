@@ -14,4 +14,7 @@ public interface RegistrationRepository extends JpaRepository<User,Long> {
     @Modifying
     @Query("update User u set u.visible=false where u.id=:id")
     void archiveById(Long id);
+
+    User getByUsername(String username);
+    boolean existsByUsername(String username);
 }
