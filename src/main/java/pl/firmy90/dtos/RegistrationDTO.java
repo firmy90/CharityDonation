@@ -1,6 +1,7 @@
 package pl.firmy90.dtos;
 
 import lombok.Data;
+import lombok.ToString;
 import pl.firmy90.validation.constraints.SamePasswords;
 import pl.firmy90.validation.constraints.UniqueUsername;
 
@@ -8,6 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+@ToString(exclude = {"password","password2"})
 @Data
 @SamePasswords
 public class RegistrationDTO {

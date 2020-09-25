@@ -23,11 +23,11 @@
           <h3 style="color: red"> <form:errors path="surname" /></h3>
         </div>
         <div class="form-group">
-          <form:input type="password" path="password" id="password" placeholder="Hasło" required="true" />
+          <form:input type="password" path="password" id="password" placeholder="Hasło"  />
           <h3 style="color: red"> <form:errors path="password" /></h3>
         </div>
         <div class="form-group">
-          <form:input type="password" path="password2" id="password2"  placeholder="Powtórz hasło" required="true" />
+          <form:input type="password" path="password2" id="password2"  placeholder="Powtórz hasło"/>
           <h3 style="color: red"> <form:errors path="password2" /></h3>
         </div>
         <div class="form-group form-group--buttons">

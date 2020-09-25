@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.firmy90.dtos.RegistrationDTO;
+import pl.firmy90.services.interfaces.EmailService;
 import pl.firmy90.services.interfaces.RegisterService;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class RegistrationController {
     private final RegisterService registerService;
+    private final EmailService emailService;
 
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
@@ -34,6 +36,9 @@ public class RegistrationController {
             return "/register";
         }
         registerService.register(registrationDTO);
+        String userId = registerService.findByUsername(registrationDTO.getUsername()).getUserId();
+        registrationDTO.setUserId(userId);
+        emailService.sendMessageNewRegistration(registrationDTO.toString());
         return "redirect:/";
     }
 

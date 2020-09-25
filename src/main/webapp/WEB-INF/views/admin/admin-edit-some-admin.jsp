@@ -13,7 +13,7 @@
 
     <section class="login-page">
       <form:form method="post" modelAttribute="registrationData">
-        <form:label path="username"/>
+        <form:hidden path="username"/>
         <h2>Edycja administratora <c:out value="${registrationData.username}"/></h2>
         <div class="form-group">
           <form:input type="text" path="name" id="name" placeholder="Imię" required="true" />
