@@ -7,6 +7,7 @@ import pl.firmy90.validation.constraints.UniqueUsername;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @ToString(exclude = {"password","password2"})
@@ -15,9 +16,11 @@ import javax.validation.constraints.Size;
 public class RegistrationDTO {
         private String userId;
         @NotBlank
+        @Pattern(regexp = "^[A-Ża-ż0-9]+$")
         @Size(min=3, max=100)
         private String name;
         @NotBlank
+        @Pattern(regexp = "^[A-Ża-ż0-9]+$")
         private String surname;
         @NotBlank
         @Size(min=3, max=100)
